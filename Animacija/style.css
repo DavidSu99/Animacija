@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #050210;
+  min-height: 100vh;
+}
+.ring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #fb5dad, #55fb9f, #b97aff);
+  z-index: 1;
+  animation: spin 1s linear infinite;
+  filter: blur(1px);
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ring::after {
+  position: absolute;
+  filter: blur(0);
+  border-radius: 50%;
+  content: "";
+  background: linear-gradient(to right, #fb5dad, #55fb9f, #b97aff);
+  width: 300px;
+  height: 300px;
+  background-color: #050210;
+  filter: blur(30px);
+  z-index: -1;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  width: 85%;
+  height: 85%;
+  background-color: #050210;
+}
+span:nth-child(1) {
+  position: absolute;
+  border-radius: 50%;
+  background: #120a2e;
+  animation: pulse-animation 3s ease-out infinite;
+  z-index: 1;
+}
+span:nth-child(2) {
+  position: absolute;
+  border-radius: 50%;
+  background: #120a2e;
+  animation: pulse-animation-second 3s ease-out infinite -2s;
+}
+
+@keyframes pulse-animation {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 20%;
+  }
+}
+@keyframes pulse-animation-second {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 100%;
+  }
+  25% {
+    width: 0px;
+    height: 0px;
+    opacity: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 20%;
+  }
+}
